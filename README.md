@@ -25,9 +25,9 @@ Adding add-ons
  - Under the settings tab of the application, any add-ons can be added to support the application(Add clear db)
  
  - heroku config | grep CLEARDB_DATABASE_URL
-	OUTPUT - CLEARDB_DATABASE_URL: mysql://bffca8d7eb65d8:123456@us-cdbr-iron-east-04.cleardb.net/heroku_8763abf826195bc?reconnect=true\
+	 - **OUTPUT** - CLEARDB_DATABASE_URL: mysql://bffca8d7eb65d8:123456@us-cdbr-iron-east-04.cleardb.net/heroku_8763abf826195bc?reconnect=true\
 		
-	OUTPUT EXPLAINED - bffca8d7eb65d8 -> **username**, 123456->**password**, us-cdbr-iron-east-04.cleardb.net — > **server**
+	 - **OUTPUT EXPLAINED** - bffca8d7eb65d8 -> **username**, 123456->**password**, us-cdbr-iron-east-04.cleardb.net — > **server**
 
 (6) 
  - Change door to 5000 in index.js because 3000 is occupied in heorku
