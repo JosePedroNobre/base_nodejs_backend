@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
     if (!token) return res.status(401).send("Access Denied")
 
     try {
-        tokenFormatted = token.slice(7, token.length).replace(/['"]+/g, '');
+        tokenFormatted = token.slice(7, token.length).replace(/['"]+/g, '').replace(/\s/g, '');
         const verified = jwt.verify(tokenFormatted, process.env.TOKEN_SECRET)
         req.user = verified;
         var decoded = jwt.decode(tokenFormatted);
