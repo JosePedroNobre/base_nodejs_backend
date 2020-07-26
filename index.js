@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 var request = require('request');
 
-cron.schedule("14 02 * * *", function () {
+cron.schedule("18 02 * * *", function () {
     var options = {
         uri: 'https://api.codemagic.io/builds',
         method: 'POST',
