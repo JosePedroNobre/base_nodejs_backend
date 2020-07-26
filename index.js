@@ -11,7 +11,7 @@ cron.schedule("21 02 * * *", function () {
         },
         json: {
             "appId": "5ec40ee743c9300018c2bf44",
-            "workflowId": "5f1b6dc787de4d3dc14e4bfc",
+            "workflowId": "5f1b905b88aa9046ee04edc4",
             "branch": "master"
         }
     };
