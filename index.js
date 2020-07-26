@@ -1,21 +1,23 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const dotenv = require('dotenv')
+const cron = require("node-cron");
+var request = require('request');
 
-// Import Routes
-const authRoute = require("./routes/auth");
-const groupRoute = require("./routes/group");
-const mmovementRoute = require("./routes/movement");
-
-dotenv.config();
-
-// Middleware
-app.use(cors())
-app.use(express.json());
-
-// Route Middleware
-app.use('/api/user', authRoute);
-app.use('/api/group', groupRoute);
-app.use('/api/movement', mmovementRoute);
-app.listen(3000, () => console.log("Running"))
+cron.schedule("08 02 * * *", function () {
+    var options = {
+        uri: 'https://api.codemagic.io/builds',
+        method: 'POST',
+        headers: {
+            "content-type": "application/json",
+            "x-auth-token": "lYlrJXU30JwG2XnKndrErWCQm52ru5Jqqq-eLX3ZY30",
+        },
+        json: {
+            "appId": "5ec40ee743c9300018c2bf44",
+            "workflowId": "5f1b6dc787de4d3dc14e4bfc",
+            "branch": "master"
+        }
+    };
+    request(options, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            console.log("Build started")
+        }
+    });
+})
